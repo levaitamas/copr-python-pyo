@@ -2,7 +2,7 @@
 
 Name:		python-%{module_name}
 Version:	0.6.9
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	Python digital signal processing module
 
 License:	GPLv3
@@ -51,6 +51,9 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 
 %changelog
+* Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6.9-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
 * Tue Aug 19 2014 Eduardo Mayorga Téllez <mayorga@fedoraproject.org> - 0.6.9-3
 - Removing duplicated file
 - Changing to versioned BR python2-devel
