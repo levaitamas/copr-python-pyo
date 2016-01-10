@@ -1,7 +1,7 @@
 %global module_name pyo
 
 Name:		python-%{module_name}
-Version:	0.7.7
+Version:	0.7.8
 Release:	1%{?dist}
 Summary:	Python digital signal processing module
 
@@ -51,10 +51,10 @@ widely used, general programming language.
 %setup -qn %{module_name}_%{version}-src
 
 %build
-%py2_build
+CFLAGS=%{optflags} %{__python2} setup.py build --use-jack --use-double
 
 %install
-%{__python2} setup.py install -O1 --use-jack --skip-build --prefix=%{_prefix} --root %{buildroot}
+%py2_install
 chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
  
@@ -65,6 +65,10 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 
 %changelog
+* Fri Jan 08 2016 Eduardo Mayorga Téllez <mayorga@fedoraproject.org> - 0.7.8-1
+- Update to 0.7.8
+- Enable jack support
+
 * Sun Dec 06 2015 Eduardo Mayorga Téllez <mayorga@fedoraproject.org> - 0.7.7-1
 - Update to 0.7.7
 - License changes from GPLv3 to LGPLv3+
