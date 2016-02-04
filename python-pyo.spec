@@ -2,7 +2,7 @@
 
 Name:		python-%{module_name}
 Version:	0.7.8
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Python digital signal processing module
 
 License:	LGPLv3+
@@ -65,6 +65,9 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 
 %changelog
+* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.7.8-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Fri Jan 08 2016 Eduardo Mayorga Téllez <mayorga@fedoraproject.org> - 0.7.8-1
 - Update to 0.7.8
 - Enable jack support
