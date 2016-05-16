@@ -1,7 +1,7 @@
 %global module_name pyo
 
 Name:		python-%{module_name}
-Version:	0.7.9
+Version:	0.8.0
 Release:	1%{?dist}
 Summary:	Python digital signal processing module
 
@@ -30,6 +30,10 @@ BuildRequires:	liblo-devel
 BuildRequires:	portaudio-devel
 BuildRequires:	portmidi-devel
 BuildRequires:	libsndfile-devel
+BuildRequires:	jack-audio-connection-kit-devel
+Obsoletes: python-%{module_name}
+Provides: python-%{module_name}
+Conflicts: python-%{module_name}
 %{?python_provide:%python_provide python2-%{module_name}}
 
 %description -n python2-%{module_name}
@@ -51,7 +55,7 @@ widely used, general programming language.
 %setup -qn %{module_name}_%{version}-src
 
 %build
-CFLAGS=%{optflags} %{__python2} setup.py build --use-jack --use-double
+CFLAGS="$RPM_OPT_FLAGS" %{__python2} setup.py build --use-jack --use-double
 
 %install
 %py2_install
@@ -65,8 +69,13 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 
 %changelog
+* Sun May 15 2016 Tamas Levai <levait@tmit.bme.hu> - 0.8.0
+- Update to 0.8.0
+
 * Tue Apr 26 2016 Tamas Levai <levait@tmit.bme.hu> - 0.7.9
 - Update to 0.7.9
+- Fix jack support
+- Handle package name change
 
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.7.8-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
