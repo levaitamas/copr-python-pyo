@@ -1,8 +1,8 @@
 %global module_name pyo
 
 Name:		python-%{module_name}
-Version:	0.7.8
-Release:	2%{?dist}
+Version:	0.7.9
+Release:	1%{?dist}
 Summary:	Python digital signal processing module
 
 License:	LGPLv3+
@@ -57,7 +57,7 @@ CFLAGS=%{optflags} %{__python2} setup.py build --use-jack --use-double
 %py2_install
 chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
- 
+
 %files -n python2-%{module_name}
 %license COPYING.LESSER.txt
 %doc ChangeLog
@@ -65,6 +65,9 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 
 %changelog
+* Tue Apr 26 2016 Tamas Levai <levait@tmit.bme.hu> - 0.7.9
+- Update to 0.7.9
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.7.8-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
@@ -87,7 +90,7 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 * Mon Aug 18 2014 Eduardo Mayorga Téllez <mayorga@fedoraproject.org> - 0.6.9-2
 - Adding license file from upstream's SVN
-- Fixing egg file name 
+- Fixing egg file name
 
 * Mon Aug 11 2014 Eduardo Mayorga Téllez <mayorga@fedoraproject.org> - 0.6.9-1
 - Initial packaging
