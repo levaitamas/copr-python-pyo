@@ -73,6 +73,9 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 
 %changelog
+* Sun Dec 11 2016 Tamas Levai <levait@tmit.bme.hu> 0.8.0-1
+- new package built with tito
+
 * Sun May 15 2016 Tamas Levai <levait@tmit.bme.hu> - 0.8.0
 - Update to 0.8.0
 
