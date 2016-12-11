@@ -5,7 +5,7 @@ Version:	0.8.0
 Release:	1%{?dist}
 Summary:	Python digital signal processing module
 
-License:	LGPLv3+
+License:	GPLv3+
 URL:		http://ajaxsoundstudio.com/software/pyo/
 Source0:	http://ajaxsoundstudio.com/downloads/%{module_name}_%{version}-src.tar.bz2
 
@@ -63,7 +63,7 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 
 %files -n python2-%{module_name}
-%license COPYING.LESSER.txt
+%license COPYING.txt
 %doc ChangeLog
 %{python2_sitearch}/*
 
