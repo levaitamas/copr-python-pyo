@@ -10,18 +10,20 @@ URL:		http://ajaxsoundstudio.com/software/pyo/
 Source0:	http://ajaxsoundstudio.com/downloads/%{module_name}_%{version}-src.tar.bz2
 
 %description
-Pyo is a Python module written in C to help DSP script creation. Pyo contains
-classes for a wide variety of audio signal processing. With pyo, the user will
-be able to include signal processing chains directly in Python scripts or
-projects, and to manipulate them in real time through the interpreter. Tools in
-the pyo module offer primitives, like mathematical operations on audio signals,
-basic signal processing (filters, delays, synthesis generators, etc.), but also
-complex algorithms to create sound granulation and other creative audio
-manipulations. pyo supports the OSC protocol (Open Sound Control) to ease
-communications between softwares, and the MIDI protocol for generating sound
-events and controlling process parameters. pyo allows the creation of
-sophisticated signal processing chains with all the benefits of a mature, and
-widely used, general programming language.
+Pyo is a Python module written in C to help DSP script creation. Pyo
+contains classes for a wide variety of audio signal processing. With
+pyo, the user will be able to include signal processing chains
+directly in Python scripts or projects, and to manipulate them in real
+time through the interpreter. Tools in the pyo module offer
+primitives, like mathematical operations on audio signals, basic
+signal processing (filters, delays, synthesis generators, etc.), but
+also complex algorithms to create sound granulation and other creative
+audio manipulations. pyo supports the OSC protocol (Open Sound
+Control) to ease communications between softwares, and the MIDI
+protocol for generating sound events and controlling process
+parameters. pyo allows the creation of sophisticated signal processing
+chains with all the benefits of a mature and widely used general
+programming language.
 
 %package -n python2-%{module_name}
 Summary:	%{summary}
@@ -37,18 +39,20 @@ Conflicts: python-%{module_name}
 %{?python_provide:%python_provide python2-%{module_name}}
 
 %description -n python2-%{module_name}
-Pyo is a Python module written in C to help DSP script creation. Pyo contains
-classes for a wide variety of audio signal processing. With pyo, the user will
-be able to include signal processing chains directly in Python scripts or
-projects, and to manipulate them in real time through the interpreter. Tools in
-the pyo module offer primitives, like mathematical operations on audio signals,
-basic signal processing (filters, delays, synthesis generators, etc.), but also
-complex algorithms to create sound granulation and other creative audio
-manipulations. pyo supports the OSC protocol (Open Sound Control) to ease
-communications between softwares, and the MIDI protocol for generating sound
-events and controlling process parameters. pyo allows the creation of
-sophisticated signal processing chains with all the benefits of a mature, and
-widely used, general programming language.
+Pyo is a Python module written in C to help DSP script creation. Pyo
+contains classes for a wide variety of audio signal processing. With
+pyo, the user will be able to include signal processing chains
+directly in Python scripts or projects, and to manipulate them in real
+time through the interpreter. Tools in the pyo module offer
+primitives, like mathematical operations on audio signals, basic
+signal processing (filters, delays, synthesis generators, etc.), but
+also complex algorithms to create sound granulation and other creative
+audio manipulations. pyo supports the OSC protocol (Open Sound
+Control) to ease communications between softwares, and the MIDI
+protocol for generating sound events and controlling process
+parameters. pyo allows the creation of sophisticated signal processing
+chains with all the benefits of a mature and widely used general
+programming language.
 
 
 %prep
