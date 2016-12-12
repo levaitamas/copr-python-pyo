@@ -2,7 +2,7 @@
 
 Name:		python-%{module_name}
 Version:	0.8.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Python digital signal processing module
 
 License:	GPLv3+
@@ -35,41 +35,47 @@ BuildRequires:	libsndfile-devel
 BuildRequires:	jack-audio-connection-kit-devel
 Obsoletes: python-%{module_name}
 Provides: python-%{module_name}
-Conflicts: python-%{module_name}
 %{?python_provide:%python_provide python2-%{module_name}}
 
 %description -n python2-%{module_name}
-Pyo is a Python module written in C to help DSP script creation. Pyo
-contains classes for a wide variety of audio signal processing. With
-pyo, the user will be able to include signal processing chains
-directly in Python scripts or projects, and to manipulate them in real
-time through the interpreter. Tools in the pyo module offer
-primitives, like mathematical operations on audio signals, basic
-signal processing (filters, delays, synthesis generators, etc.), but
-also complex algorithms to create sound granulation and other creative
-audio manipulations. pyo supports the OSC protocol (Open Sound
-Control) to ease communications between softwares, and the MIDI
-protocol for generating sound events and controlling process
-parameters. pyo allows the creation of sophisticated signal processing
-chains with all the benefits of a mature and widely used general
-programming language.
+Python 2 version.
 
+%package -n python3-%{module_name}
+Summary:	%{summary}
+BuildRequires:	python3-devel
+BuildRequires:	liblo-devel
+BuildRequires:	portaudio-devel
+BuildRequires:	portmidi-devel
+BuildRequires:	libsndfile-devel
+BuildRequires:	jack-audio-connection-kit-devel
+Obsoletes: python-%{module_name}
+Provides: python-%{module_name}
+%{?python_provide:%python_provide python3-%{module_name}}
+
+%description -n python3-%{module_name}
+Python 3 version.
 
 %prep
 %setup -qn %{module_name}_%{version}-src
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" %{__python2} setup.py build --use-jack --use-double
+CFLAGS="$RPM_OPT_FLAGS" %{__python3} setup.py build --use-jack --use-double
 
 %install
 %py2_install
+%py3_install
 chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
-
 
 %files -n python2-%{module_name}
 %license COPYING.txt
 %doc ChangeLog
 %{python2_sitearch}/*
+
+%files -n python3-%{module_name}
+%license COPYING.txt
+%doc ChangeLog
+%{python3_sitearch}/*
 
 
 %changelog
