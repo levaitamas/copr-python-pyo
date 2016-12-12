@@ -79,6 +79,9 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 
 %changelog
+* Mon Dec 12 2016 Tamas Levai <levait@tmit.bme.hu> 0.8.1-2
+- Create package for both Python 2 and Python 3 (levait@tmit.bme.hu)
+
 * Sun Dec 11 2016 Tamas Levai <levait@tmit.bme.hu> 0.8.1-1
 - Update to 0.8.1 (levait@tmit.bme.hu)
 
