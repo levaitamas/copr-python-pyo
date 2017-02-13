@@ -79,6 +79,9 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 
 %changelog
+* Mon Feb 13 2017 Tamas Levai <levait@tmit.bme.hu> 0.8.3-1
+- Update to 0.8.3 (levait@tmit.bme.hu)
+
 * Sun Dec 18 2016 Tamas Levai <levait@tmit.bme.hu> 0.8.2-1
 - Update to 0.8.2 (levait@tmit.bme.hu)
 
