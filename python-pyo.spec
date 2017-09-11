@@ -2,7 +2,7 @@
 
 Name:		python-%{module_name}
 Version:	0.8.7
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Python digital signal processing module
 
 License:	GPLv3+
@@ -55,12 +55,14 @@ Provides: python-%{module_name}
 %description -n python3-%{module_name}
 Python 3 version.
 
+%global debug_package %{nil}
+
 %prep
-%setup -qn %{module_name}_%{version}-src
+%autosetup -n %{module_name}_%{version}-src
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" %{__python2} setup.py build --use-jack --use-double
-CFLAGS="$RPM_OPT_FLAGS" %{__python3} setup.py build --use-jack --use-double
+%{__python2} setup.py build --use-jack --use-double
+%{__python3} setup.py build --use-jack --use-double
 
 %install
 %py2_install
