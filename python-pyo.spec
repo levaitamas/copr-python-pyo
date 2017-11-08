@@ -1,8 +1,8 @@
 %global module_name pyo
 
 Name:		python-%{module_name}
-Version:	0.8.7
-Release:	2%{?dist}
+Version:	0.8.8
+Release:	1%{?dist}
 Summary:	Python digital signal processing module
 
 License:	GPLv3+
