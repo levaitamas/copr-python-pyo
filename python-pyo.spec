@@ -2,7 +2,7 @@
 
 Name:		python-%{module_name}
 Version:	0.9.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Python digital signal processing module
 
 License:	GPLv3+
@@ -33,6 +33,7 @@ BuildRequires:	portaudio-devel
 BuildRequires:	portmidi-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	jack-audio-connection-kit-devel
+BuildRequires:	gcc
 Obsoletes: python-%{module_name}
 Provides: python-%{module_name}
 %{?python_provide:%python_provide python2-%{module_name}}
@@ -48,6 +49,7 @@ BuildRequires:	portaudio-devel
 BuildRequires:	portmidi-devel
 BuildRequires:	libsndfile-devel
 BuildRequires:	jack-audio-connection-kit-devel
+BuildRequires:	gcc
 Obsoletes: python-%{module_name}
 Provides: python-%{module_name}
 %{?python_provide:%python_provide python3-%{module_name}}
