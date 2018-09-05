@@ -1,7 +1,7 @@
 %global module_name pyo
 
 Name:		python-%{module_name}
-Version:	0.9.0
+Version:	0.9.1
 Release:	1%{?dist}
 Summary:	Python digital signal processing module
 
