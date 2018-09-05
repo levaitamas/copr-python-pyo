@@ -83,6 +83,9 @@ chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
 
 %changelog
+* Wed Sep 05 2018 Tamas Levai <levait@tmit.bme.hu> 0.9.1-2
+- Add GCC build dependency to fix Fedora 29 builds (levait@tmit.bme.hu)
+
 * Wed Sep 05 2018 Tamas Levai <levait@tmit.bme.hu> 0.9.1-1
 - Update to 0.9.1 (levait@tmit.bme.hu)
 - Automatic commit of package [python-pyo] release [0.9.0-1].
