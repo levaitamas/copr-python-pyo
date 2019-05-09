@@ -92,6 +92,9 @@ rm -rf %{buildroot}%{_bindir}/*
 %{python3_sitearch}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
+* Thu May 09 2019 Tamas Levai <levait@tmit.bme.hu> 0.9.7-1
+- Update to 0.9.7, build from sdist (levait@tmit.bme.hu)
+
 * Wed Sep 05 2018 Tamas Levai <levait@tmit.bme.hu> 0.9.1-2
 - Add GCC build dependency to fix Fedora 29 builds (levait@tmit.bme.hu)
 
