@@ -1,86 +1,95 @@
-%global module_name pyo
+%global pypi_name pyo
 
-Name:		python-%{module_name}
-Version:	0.9.1
-Release:	2%{?dist}
-Summary:	Python digital signal processing module
+Name:           python-%{pypi_name}
+Version:        0.9.7
+Release:        1%{?dist}
+Summary:        Python module to build digital signal processing program
 
-License:	GPLv3+
-URL:		http://ajaxsoundstudio.com/software/pyo/
-Source0:	http://ajaxsoundstudio.com/downloads/%{module_name}_%{version}-src.tar.bz2
+License:        LGPLv3+
+URL:            http://ajaxsoundstudio.com/software/pyo/
+Source0:        %{pypi_name}-%{version}.tar.gz
+ 
+BuildRequires:  python2-devel
+BuildRequires:  python2dist(setuptools)
+ 
+BuildRequires:  python3-devel
+BuildRequires:  python3dist(setuptools)
+
+BuildRequires:	liblo-devel
+BuildRequires:	portaudio-devel
+BuildRequires:	portmidi-devel
+BuildRequires:	libsndfile-devel
+BuildRequires:	jack-audio-connection-kit-devel
+BuildRequires:	gcc
 
 %description
-Pyo is a Python module written in C to help DSP script creation. Pyo
-contains classes for a wide variety of audio signal processing. With
-pyo, the user will be able to include signal processing chains
-directly in Python scripts or projects, and to manipulate them in real
-time through the interpreter. Tools in the pyo module offer
-primitives, like mathematical operations on audio signals, basic
-signal processing (filters, delays, synthesis generators, etc.), but
-also complex algorithms to create sound granulation and other creative
-audio manipulations. pyo supports the OSC protocol (Open Sound
-Control) to ease communications between softwares, and the MIDI
-protocol for generating sound events and controlling process
-parameters. pyo allows the creation of sophisticated signal processing
-chains with all the benefits of a mature and widely used general
-programming language.
+pyo is a Python module containing classes for a wide variety of audio signal
+processing types. With pyo, user will be able to include signal processing
+chains directly in Python scripts or projects, and to manipulate them in real
+time through the interpreter. Tools in pyo module offer primitives, like
+mathematical operations on audio signal, basic signal processing (filters,
+delays, synthesis...
 
-%package -n python2-%{module_name}
-Summary:	%{summary}
-BuildRequires:	python2-devel
-BuildRequires:	liblo-devel
-BuildRequires:	portaudio-devel
-BuildRequires:	portmidi-devel
-BuildRequires:	libsndfile-devel
-BuildRequires:	jack-audio-connection-kit-devel
-BuildRequires:	gcc
-Obsoletes: python-%{module_name}
-Provides: python-%{module_name}
-%{?python_provide:%python_provide python2-%{module_name}}
+%package -n     python2-%{pypi_name}
+Summary:        %{summary}
+Obsoletes: python-%{pypi_name}
+Provides: python-%{pypi_name}
+%{?python_provide:%python_provide python2-%{pypi_name}}
+ 
+Requires:       python2dist(setuptools)
+%description -n python2-%{pypi_name}
+pyo is a Python module containing classes for a wide variety of audio signal
+processing types. With pyo, user will be able to include signal processing
+chains directly in Python scripts or projects, and to manipulate them in real
+time through the interpreter. Tools in pyo module offer primitives, like
+mathematical operations on audio signal, basic signal processing (filters,
+delays, synthesis...
 
-%description -n python2-%{module_name}
-Python 2 version.
-
-%package -n python3-%{module_name}
-Summary:	%{summary}
-BuildRequires:	python3-devel
-BuildRequires:	liblo-devel
-BuildRequires:	portaudio-devel
-BuildRequires:	portmidi-devel
-BuildRequires:	libsndfile-devel
-BuildRequires:	jack-audio-connection-kit-devel
-BuildRequires:	gcc
-Obsoletes: python-%{module_name}
-Provides: python-%{module_name}
-%{?python_provide:%python_provide python3-%{module_name}}
-
-%description -n python3-%{module_name}
-Python 3 version.
+%package -n     python3-%{pypi_name}
+Summary:        %{summary}
+Obsoletes: python-%{pypi_name}
+Provides: python-%{pypi_name}
+%{?python_provide:%python_provide python3-%{pypi_name}}
+ 
+Requires:       python3dist(setuptools)
+%description -n python3-%{pypi_name}
+pyo is a Python module containing classes for a wide variety of audio signal
+processing types. With pyo, user will be able to include signal processing
+chains directly in Python scripts or projects, and to manipulate them in real
+time through the interpreter. Tools in pyo module offer primitives, like
+mathematical operations on audio signal, basic signal processing (filters,
+delays, synthesis...
 
 %global debug_package %{nil}
 
 %prep
-%autosetup -n %{module_name}_%{version}-src
+%autosetup -n %{pypi_name}-%{version}
+# Remove bundled egg-info
+rm -rf %{pypi_name}.egg-info
 
 %build
 %{__python2} setup.py build --use-jack --use-double
 %{__python3} setup.py build --use-jack --use-double
 
 %install
+# Must do the default python version install last because
+# the scripts in /usr/bin are overwritten with every setup.py install.
 %py2_install
+rm -rf %{buildroot}%{_bindir}/*
 %py3_install
-chmod 0755 %{buildroot}%{python2_sitearch}/_pyo.so
 
-%files -n python2-%{module_name}
-%license COPYING.txt
-%doc ChangeLog
-%{python2_sitearch}/*
+%files -n python2-%{pypi_name}
+%doc README.md
+%{python2_sitearch}/%{pypi_name}
+%{python2_sitearch}/%{pypi_name}64
+%{python2_sitearch}/%{pypi_name}-%{version}-py?.?.egg-info
 
-%files -n python3-%{module_name}
-%license COPYING.txt
-%doc ChangeLog
-%{python3_sitearch}/*
-
+%files -n python3-%{pypi_name}
+%doc README.md
+%{_bindir}/epyo
+%{python3_sitearch}/%{pypi_name}
+%{python3_sitearch}/%{pypi_name}64
+%{python3_sitearch}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
 * Wed Sep 05 2018 Tamas Levai <levait@tmit.bme.hu> 0.9.1-2
