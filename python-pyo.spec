@@ -1,13 +1,13 @@
 %global pypi_name pyo
 
 Name:           python-%{pypi_name}
-Version:        0.9.7
+Version:        1.0.0
 Release:        1%{?dist}
 Summary:        Python module to build digital signal processing program
 
 License:        LGPLv3+
 URL:            http://ajaxsoundstudio.com/software/pyo/
-Source0:        %{pypi_name}-%{version}.tar.gz
+Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
  
 BuildRequires:  python2-devel
 BuildRequires:  python2dist(setuptools)
