@@ -92,6 +92,9 @@ rm -rf %{buildroot}%{_bindir}/*
 %{python3_sitearch}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
+* Thu Nov 28 2019 Tamas Levai <levait@tmit.bme.hu> 1.0.1-1
+- Update to 1.0.1 (levait@tmit.bme.hu)
+
 * Fri Jul 12 2019 Tamas Levai <levait@tmit.bme.hu> 1.0.0-1
 - Update to 1.0.0 (levait@tmit.bme.hu)
 
