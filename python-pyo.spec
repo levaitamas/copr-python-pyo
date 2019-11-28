@@ -1,7 +1,7 @@
 %global pypi_name pyo
 
 Name:           python-%{pypi_name}
-Version:        1.0.0
+Version:        1.0.1
 Release:        1%{?dist}
 Summary:        Python module to build digital signal processing program
 
